@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+
+    <body>
+        <h1> Edit User</h1>
+    
+        <form method="POST">
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" value="{{user.first_name}}"><br>
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" value="{{user.last_name}}"><br>
+            <label for="image_url">Image URL:</label>
+            <input type="text" name="image_url" alt="Profile Photo" value="{{user.image_url}}"><br>
+            <a href="/users/{{user.id}}">Cancel</a>
+            <button type="submit">Save</button>
+            </form>
+        </form>
+    </body>
+</html>
