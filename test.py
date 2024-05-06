@@ -1,5 +1,5 @@
 from app import app
-from models import db, Users, Posts
+from models import db, User, Post
 from unittest import TestCase
 
 app.config['TESTING'] = True
@@ -16,8 +16,8 @@ class UserModelTestCase(TestCase):
     def setUp(self):
         """Clean up any existing users"""
         with app.app_context():
-            Users.query.delete()
-            user = Users(first_name='John', last_name='Doe', image_url=DEFAULT_URL)
+            User.query.delete()
+            user = User(first_name='John', last_name='Doe', image_url=DEFAULT_URL)
             db.session.add(user)
             db.session.commit()
 
@@ -62,8 +62,8 @@ class PostsModelTestCase(TestCase):
     def setUp(self):
         """Clean up any existing posts"""
         with app.app_context():
-            Posts.query.delete()
-            post = Posts(title='Test', post_content='This is a test.')
+            Post.query.delete()
+            post = Post(title='Test', post_content='This is a test.')
             db.session.add(post)
             db.session.commit()
             self.post_id = post.id
